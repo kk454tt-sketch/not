@@ -27,7 +27,10 @@ profiles, site name, logo, and every dropdown option live in your Supabase proje
 ## Optional: Google sign-in for students
 Students do not need an account. If you want the "Sign in with Google" page to work:
 Authentication > Providers > Google (add your Google OAuth client ID and secret), then
-Authentication > URL Configuration > add your website address to Site URL and Redirect URLs.
+Authentication > URL Configuration > set Site URL to `https://bachelorcom-ten.vercel.app/`
+and add `https://bachelorcom-ten.vercel.app/` to Redirect URLs. In Google Cloud Console,
+add `https://rscyxdficmsxeujxyroq.supabase.co/auth/v1/callback` as an authorized redirect URI
+for the OAuth client. `config.js` sends the Google sign-in return to the Vercel URL.
 Set `ALLOWED_EMAIL_DOMAIN` in `config.js` to limit sign-in to one email domain.
 That limit only controls who can sign in. It does not restrict enrollment or forms, which stay open to everyone.
 

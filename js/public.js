@@ -415,6 +415,7 @@ Routes.login = async () => {
 };
 
 actions['google-login'] = async () => {
-  const { error } = await sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: location.origin + location.pathname } });
+  const redirectTo = CFG.OAUTH_REDIRECT_URL || location.origin + location.pathname;
+  const { error } = await sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo } });
   if (error) toast(errMsg(error), 'error');
 };
